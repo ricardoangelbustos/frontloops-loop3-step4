@@ -1,0 +1,77 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    background: url('img/background.jpg') no-repeat center /cover;
+    font-family: 'Roboto', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.taylor {
+    border-radius: 5px;
+    display: flex;
+    background: url('img/taylor.jpg') no-repeat center /cover;
+    margin: 70px auto;
+    width: 400px;
+    height: 405px;
+    box-shadow: 0 10px 10px -5px rgba(0, 0, 0, 0.8);
+}
+.taylorleft,.taylorright {
+    flex: 0 0 50%;
+}
+.taylorright {
+    background-color: #fff;
+    border-radius: 0 5px 5px 0;
+    position: relative;
+    perspective: 1000px;/*THIS*/
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px 15px;
+    box-sizing: border-box;
+}
+.taylorright::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('./img/taylor.jpg') no-repeat 88% 44% /cover;
+    border-radius: 0 10px 10px 0;
+    border-left: 2px solid transparent;
+    transition: 500ms;
+    transform-origin: 0;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+}
+.taylor:hover .taylorright::before {
+    transform: rotateY(-45deg);
+}
+.taylorbuttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.taylorbutton {
+    background: 0;
+    border: none;
+    margin: 0;
+    margin-bottom: 35px;
+    padding: 0;
+    cursor: pointer;
+    fill: #666;
+    transition: 500ms;
+}
+.taylorbutton:hover {
+    fill: #000;
+}
+@media (max-width: 400px){
+    .taylor{
+        width: 300px;
+    }
+    .taylorright::before{
+        background: url('./img/taylor.jpg') no-repeat 74% 44% /cover;
+    }
+}
